@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>Flexbox Example</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 428px;
+            max-height: 926px;
+            overflow: auto;
+            margin: 0 auto;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 35px;
+            
+            background-color: #A59C9C;
+            margin-top: 293px;
+        }
+        .bottom {
+            width: 100%;
+            height: 35px;
+            
+            background-color: #A59C9C;
+            margin-bottom: 292px;
+        }
+        .text-container{
+            width: 428px;
+            height: 270px;
+            flex-shrink: 0;
+            background-color: #C9C4C4;;
+        }
+        .center-text {
+            font-size: 18px;            
+        }
+
+        h1{
+            margin-left: 10px;
+            margin-right: 10px;
+            color: #FFFAFA;
+            font-family: Inter;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+        h2{
+            color: #FFFAFA;
+            font-family: Inter;
+            font-size: 35px;
+            font-weight: 600;
+            margin-left: 36px;
+            margin-right: 24px;
+            margin-top: 92px;
+            margin-bottom: 83px;
+        }
+        .highlight {
+            color: #FD8D34; 
+        }
+        .finger-image {
+            position: relative;
+            width: 50px;
+            height: 38.636px;
+            transform: translate(320px,-170px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top">
+        <h1>버전 | v23.8.19</h1>
+        <h1 id="clock">clock</h2>
+    </div>
+    <div class="text-container">
+        <h2>" <span class="highlight">주문</span>을 하시려면<br> <span class="highlight">화면</span>을 터치해주세요 "</h2>
+        <img class="finger-image" src="svg/finger.svg">
+    </div>
+    <div class="bottom"></div>
+
+    <script>
+        var Target = document.getElementById("clock");
+
+        function clock() {
+            var time = new Date();
+            
+            var year = time.getFullYear();
+            var month = time.getMonth();
+            var date = time.getDate();
+            var day = time.getDay();
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+
+            Target.innerText = 
+            `${year}. ${month + 1}. ${date}(${week[day]})` +
+            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                
+        }
+
+        function handleTouch() {
+            // 다른 HTML로 이동
+            window.location.href = "silverBot.html";
+        }
+
+        // 화면을 터치하는 이벤트 리스너 등록
+        document.addEventListener("click", handleTouch);
+
+        clock();
+        setInterval(clock, 1000); // 1초마다 실행
+        
+
+    </script>
+    
+</body>
+</html>

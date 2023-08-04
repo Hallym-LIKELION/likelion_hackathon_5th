@@ -1,0 +1,186 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.full-screen {
+    font-family: 'Noto Sans KR', sans-serif;
+    max-width: 428px;
+    max-height: 926px;
+    overflow: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.categories-hr {
+    position: absolute;
+    height: 2px;
+    width: 428px;
+    background-color: rgb(139, 138, 147); /* 두 번째 구분선 색상 */
+    margin-top: 90px;
+}
+.overlapping-hr {
+    position: absolute;
+    height: 3px;
+    width: 4%;
+    background-color: #f00; 
+    margin-left: 19px;
+    margin-top: 91px;
+}
+
+.categories {
+    padding-left: 20px; padding-right: 3px; padding-bottom: 1px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    background-color: #a8a4a732;
+    height: 100px  /* 컨테이너 크기 (백그라운드 색깔범위) */
+}
+.categories h1{
+    margin: 5px; margin-right: 20px;
+    white-space: nowrap;/*글자커도 다음줄로 안넘어가게*/
+
+    font-size: 10px;
+    color: #656464;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #a8a4a732;
+    height: 636px;
+    overflow-y: auto;
+    
+}
+
+/*메뉴 상자*/
+.image-container {
+    position: relative;
+    flex-shrink: 0;  
+}
+
+.image-container > img:first-child { /*안그러면 모두 영향받음*/
+    width: 169px;
+    height: 169px;
+    margin-left: 22px;
+    margin-top: 30px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlaymenu{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zoom-in-image {
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+}
+
+.menu-image {
+    width: 144px;
+    height: 144px;
+    object-fit: cover;
+}
+
+
+
+
+.overlayinfo{ /*이름,가격이 row로 정렬되게*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top:85px;
+}
+.overlayinfo p {
+    margin: 5px 0;
+    color: #3B2C2C;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16.5px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+.basket{
+    width: 428px;
+    height: 199px;
+    flex-shrink: 0;
+    background: #5b5a5b;
+}
+.btn-container{
+    display:flex;
+    flex-direction: row;
+}
+.back-btn{
+    width: 214px;
+    height: 54px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 0px 5px;
+    background: #4D4949;
+    
+}
+.back-btn p{
+    color: #FFF;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 67px;
+    margin-top: 14px;
+}
+.order-btn{
+    width: 214px;
+    height: 54px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 5px 0px;
+    background: #F29247;
+}
+.order-btn p{
+    color: #FFF;
+   
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 67px;
+    margin-top: 14px;
+}
