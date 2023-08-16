@@ -3,23 +3,32 @@
 <head>
     <title>Document</title>
     <style>
-        body {            
-            max-width: 428px;
-            max-height: 926px;
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        
+
+        .fullscreen {            
+            width: 428px;
+            height: 926px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             background-color: rgba(211, 204, 204, 0.85);
-        }
-        #silversk-modal {
-            display: block; /* Hidden by default */
+            border: solid 2px #ccc;
             position: fixed;
-            left: 50%;
             top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #silversk-modal {
             width: 389.665px;
-            height: 372.338px;
+            height: 466.063px;
+            display: flex;
             flex-direction: column;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 5px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            transform: translate(-50%, -50%); /* 필요없는 transform */
         }
         .silversk-modal-top{
             width: 391.31px;
@@ -27,7 +36,6 @@
             flex-shrink: 0;
             border-radius: 5px 5px 0px 0px;
             background: #F29247;
-            margin: auto;
         }
         .silversk-modal-content {
             position: relative;
@@ -53,7 +61,7 @@
         .silversk-modal-content h1,
         .silversk-modal-content h2,
         .silversk-modal-content h3 {
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 30px;
             font-style: normal;
             font-weight: 600;
@@ -84,7 +92,7 @@
             top: 95%;
             transform: translateX(-50%);
             color: #616161;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 23px;
             font-style: normal;
             font-weight: 700;
@@ -116,7 +124,7 @@
             transform: translate(-75%, -180%);
             
             color: #3C2C2C;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 26px;
             font-style: normal;
             font-weight: 600;
@@ -145,7 +153,7 @@
             transform: translate(-35%, -180%);
             
             color: #3C2C2C;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 26px;
             font-style: normal;
             font-weight: 600;
@@ -160,38 +168,39 @@
     </style>
 </head>
 <body>
-    <div id="silversk-modal" >
-        <div class="silversk-modal-top"></div>
-        <div class="silversk-modal-content">
-            <img class="highlight" src="svg/highlight.svg">
-            <h1>실버봇이</h1> 
-            <h2>큰 글자 화면</h2> 
-            <h3>을 추천합니다</h3>   
-            <div class="btn-container">
-                <div id="basic-mode-btn">
-                    <img class="btn-image" src="svg/btn.svg" alr="basic_btn">
-                    <span>기본 화면</span>
-                </div>
-                <div id="continue-mode-btn">
-                    <img class="btn-image" src="svg/btn.svg" alr="continue_btn">
-                    <span>계속하기</span>
-                </div>
-                <div id="continue">
+    <div class="fullscreen">
+        <div id="silversk-modal" >
+            <div class="silversk-modal-top"></div>
+            <div class="silversk-modal-content">
+                <img class="highlight" src="src/svg/highlight.svg">
+                <h1>실버봇이</h1> 
+                <h2>큰 글자 화면</h2> 
+                <h3>을 추천합니다</h3>   
+                <div class="btn-container">
+                    <div id="basic-mode-btn">
+                        <img class="btn-image" src="src/svg/btn.svg" alr="basic_btn">
+                        <span>기본 화면</span>
+                    </div>
+                    <div id="continue-mode-btn">
+                        <img class="btn-image" src="src/svg/btn.svg" alr="continue_btn">
+                        <span>계속하기</span>
+                    </div>
+                    <div id="continue">
 
+                    </div>
                 </div>
             </div>
         </div>
+
+        <h1 class="silversk-text">Silversk</h1>
     </div>
-
-    <h1 class="silversk-text">Silversk</h1>
-
     <script>
 
         function goToBasicMode() {
-            window.location.href = "pre-order.html";
+            window.location.href = "basicMode-order.html";
         }
         function goToSilverMode() {
-            window.location.href = "order.html";
+            window.location.href = "silverMode-order.html";
         }
 
         const basicButton = document.getElementById("basic-mode-btn");

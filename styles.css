@@ -1,14 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap');
+
+
+
+
 .full-screen {
-    font-family: 'Noto Sans KR', sans-serif;
     max-width: 428px;
     max-height: 926px;
     overflow: auto;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    position: relative; /* 추가 */
 }
 .categories-hr {
     position: absolute;
@@ -38,7 +43,6 @@
     margin: 5px; margin-right: 20px;
     white-space: nowrap;/*글자커도 다음줄로 안넘어가게*/
 
-    font-size: 10px;
     color: #656464;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 24px;
@@ -62,12 +66,22 @@
     flex-shrink: 0;  
 }
 
-.image-container > img:first-child { /*안그러면 모두 영향받음*/
+.image-container img:first-child  { /*안그러면 모두 영향받음*/
     width: 169px;
     height: 169px;
     margin-left: 22px;
     margin-top: 30px;
+    
 }
+.basic-image-container {
+    position: relative;
+    flex-shrink: 0;  
+    width: 110px;
+    height: 110px;
+    margin-left: 22px;
+    margin-top: 30px;
+}
+
 
 .overlay {
     position: absolute;
@@ -99,14 +113,28 @@
     position: absolute;
     top: 40px;
     left: 30px;
-    width: 24px;
-    height: 24px;
+    width: 70px;
+    height: 29px;
+    flex-shrink: 0;
     z-index: 1;
+    border-radius: 10px;
+    background: #E6E6E6;
+    color: #000;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center; /* 수직 방향 중앙 정렬 */
 }
 
 .menu-image {
-    width: 144px;
-    height: 144px;
+    margin-left: 10px;
+    margin-top: 10px;
     object-fit: cover;
 }
 
@@ -126,7 +154,7 @@
     align-items: center;
     margin-top:85px;
 }
-.overlayinfo p {
+.overlayinfo p1 {
     margin: 5px 0;
     color: #3B2C2C;
     font-family: 'Noto Sans KR', sans-serif;
@@ -135,14 +163,144 @@
     font-weight: 500;
     line-height: normal;
 }
+.overlayinfo p2 {
+    margin: 5px 0;
+    color: #3B2C2C;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16.5px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
 
 
 .basket{
     width: 428px;
-    height: 199px;
-    flex-shrink: 0;
-    background: #5b5a5b;
+    height: 145px;
+    display: flex;
+    flex-direction: column;
+    
+    background: #D9D9D9;
 }
+
+.basket-index {
+    width: 428px;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.basket-index img {
+    width: 19px;
+    height: 19px;
+    margin-left: 13px;
+    margin-right: 6px; /* 이미지와 주문내역 텍스트 사이의 간격 조정 */
+    margin-top: 13px;
+}
+.basket-index span{
+    color: #454545;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-right: 16px;
+    margin-top: 15px;
+}
+
+.order-section {
+    display: flex;
+    align-items: center; /* 이미지와 텍스트를 수직 중앙 정렬 */
+}
+
+
+.basket-menus {
+    width: 428px;
+    height: 120px;
+    display: flex;
+    flex-direction: row;   
+    background: #D9D9D9;
+    position: relative;  /* 추가 */
+    align-items: start;
+    flex-wrap: wrap;
+    overflow-x: auto; 
+}
+
+.basket-menu {
+    width: 184px; 
+    height: 88px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background: #F5F5F5;
+    margin-left: 20px;
+    margin-top: 12px;
+    position: relative; /* 추가된 코드 */
+}
+
+.basket-menu-cancel {
+    position: absolute; 
+    top: 5px;  /* 상단과의 간격 */
+    right: 5px;  /* 오른쪽과의 간격 */
+}
+
+.basket-menu-info {
+    display: flex;
+    flex-direction: column;
+    position: relative;  
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.basket-menu-info img{ 
+    position: static;
+    height: 35px;
+    top: 0;  /* 추가 */
+    left: 0;  /* 추가 */
+}
+.basket-menu-info p1{
+    margin: 0;
+    color: #3B2C2C;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+}
+.basket-menu-info p2{
+    margin: 0;
+    color: #FF4308;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+}
+
+.basket-menu-detail {
+    display: flex;
+    flex-direction: column;
+    position: static;  /* 추가 */
+    top: 0;  /* 추가 */
+    left: 0;  /* 추가 */
+}
+.basket-menu-detail p {
+    margin: 0; /* 마진을 0으로 설정하여 기본 마진을 제거합니다. */
+    margin-left: 13px;
+    height: 22px; /* 높이 값을 조절합니다. */
+    color: #343434;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12.5px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+}
+
 .btn-container{
     display:flex;
     flex-direction: row;
@@ -161,7 +319,7 @@
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 22px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     margin-left: 67px;
     margin-top: 14px;
@@ -175,12 +333,652 @@
 }
 .order-btn p{
     color: #FFF;
-   
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 67px;
+    margin-top: 14px;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* 변경: 상대 위치 설정 */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 389px; /* Full width */
+    height: 615px; /* Full height */
+    flex-direction: column;
+    border-radius: 0px 0px 5px 5px;
+    background: #FFF;
+    left: 50%; /* 위치를 화면 가운데로 */
+    top: 50%; /* 위치를 화면 가운데로 */
+    transform: translate(-50%, -50%); /* 화면 가운데 정렬 */
+
+}
+
+.detail-modal{
+    display: flex;
+    flex-direction: column;
+}
+.detail-modal-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px 5px 0px 0px;
+    background: #F5F5F5;
+}
+.detail-modal-info img{
+    width: 200px;
+    height: 170px;
+    flex-shrink: 0;
+}
+.detail-modal-info h1{
+    color: #3B2C2C;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.detail-modal-info p{
+    color: #3B2C2C;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+
+.detail-modal-detail{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #D9D9D9;
+}
+.detail-modal-detail h1{
+    color: #3B2C2C;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 18px;
+    margin-top: 15px;
+}
+.detail-modal-detail p1{
+    color: #3B2C2C;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 18px;
+    margin-top: 10px;
+}
+.detail-modal-detail p2{
+    color: #FF2626;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.detail-modal-btn{
+    display: flex;
+    flex-direction: row;
+}
+.detail-modal-btn-back{
+    border-radius: 0px 0px 0px 5px;
+    background: #4D4949;
+    height: 60px; /* 예시: 높이를 50px로 지정 */
+    width: 50%;
+
+    color: #FFF;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin-left: 67px;
+
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center;
+    
+}
+.detail-modal-btn-choice{
+    border-radius: 0px 0px 5px 0px;
+    background: #F29247;
+    height: 60px; /* 예시: 높이를 50px로 지정 */
+    width: 50%;
+
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center;
+}
+
+.option-modal{
+    display: flex;
+    flex-direction: column;
+}
+.option-modal-headline{
+    height: 71px; /* 예시: 높이를 50px로 지정 */
+    width: 391px;
+    border-radius: 5px 5px 0px 0px;
+    background: #F29247;
+    display: flex;
+    justify-content: center;  /* 수평 중앙 정렬 */
+    align-items: center;
+}
+.option-modal-headline h{
+    width: 100%;           
+    text-align: center; 
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 28.5px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.option-modal-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;  
+    height: 455px;
+}
+.option-modal-info-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 107px;
+    margin-left: 12px;
+}
+.option-modal-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    width: 169px;
+    height: 169px;
+    flex-shrink: 0;
+    
+    border-radius: 10px;
+    background: #F5F5F5;
+}
+.option-modal-info img{
+    width: 105px;
+    height: 71px;
+    flex-shrink: 0;
+    margin: auto; 
+}
+.option-modal-info h{
+    color: #3B2C2C;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center; 
+}
+.option-modal-info-price {
+    color: #3B2C2C;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center; 
+    margin-top: 29px;
+}
+.option-modal-option{
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 예시: 높이를 50px로 지정 */
+    width: 50%;
     margin-top: 14px;
+    margin-left: 16px;
+}
+.option-modal-option h{
+    color: #130202;
+    font-family:'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.option-modal-option-choice{
+    display: flex;
+    flex-direction: row;
+}
+.option-modal-btn{
+    display: flex;
+    flex-direction: row;
+}
+.option-modal-back-btn{
+    width: 144px;
+    height: 61px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #4C4949;
+    margin-left: 30px;
+    margin-right: 40px;
+
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center; /* 수직 방향 중앙 정렬 */
+}
+.option-modal-basket-btn{
+    width: 144px;
+    height: 61px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #F29247;
+
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center; /* 수직 방향 중앙 정렬 */
+}
+.boxContainer {
+    position: relative;
+    width: 58px;
+    height: 60px;
+    
+}
+.boxContainer:hover {  /* 버튼이 눌렸을 때의 스타일 */
+    box-shadow: 2px 1px 5px -3px #333;
+}
+.boxContainer:active {  /* 버튼이 눌렸을 때의 스타일 */
+    box-shadow: 0 5px 5px -5px #333;
+}
+
+
+.boxImg {
+    width: 58px;
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.optionImg {
+    width: auto;
+    height: auto;
+    max-width: 65%;
+    max-height: 65%;
+    object-fit: contain;
+    margin-bottom: 7px; /* 여기서 margin 값을 조절하여 간격을 변경 */
+}
+
+.boxImg span {
+    color: #130202;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 8.5px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute; 
+    bottom: 7px;  /* 여기서 bottom 값을 조절하여 span의 위치를 변경 */
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.ordercheck-modal{
+    display: flex;
+    flex-direction: column;
+}
+.ordercheck-modal-headerline{
+    width: 391px;
+    height: 71px;
+    flex-shrink: 0;
+
+    border-radius: 5px 5px 0px 0px;
+    background: #F29247;
+
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center;
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 28.5px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+
+}
+.orderlist{
+    display: flex;
+    flex-direction: column;
+}
+.orderdetail{
+    display: flex;
+    flex-direction: row;
+
+    width: 344px;
+    height: 130px;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    background: #F5F5F5;
+
+    margin-top: 33px;
+    margin-left: 23px;
+}
+.orderdetail-img{
+    height: 90px;
+    width: 100px;
+}
+
+.basic-orderdetail{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    background: #F5F5F5;
+
+    margin-top: 33px;
+    margin-left: 23px;
+}
+
+.basic-orderdetail img{
+    width : 50%;
+    height :50%;
+    position :absolute;
+    top : 0;
+    transform: translate(50%,10%);
+}
+
+.orderdetail-img img{
+    height: 90%;
+    width: 90%;
+
+    margin-left: 50px;
+    margin-top: 25px;
+}
+.orderdetail-text{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:  -10px; 
+}
+.orderdetail-text p{
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 100px;
+}
+
+.basic-orderdetail-text{
+    position : absolute; 
+    top :50%;
+    transform: translate(45%,-10%);
+}
+.basic-orderdetail-text p{
+    
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.orderdetail-text-value{
+    display: flex;
+    flex-direction: row;
+}
+
+.orderdetail-text-value p1{
+    color: #F29247;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 85px;
+}
+.orderdetail-text-value p2{
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 6px;
+}
+.basic-orderdetail-text-value{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top:80%;
+    transform: translate(20%,-10%);
+}
+
+.basic-orderdetail-text-value p1{
+    color: #F29247;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.basic-orderdetail-text-value p2{
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 9px;
+}
+
+.order-hr {
+
+    height: 1px;
+    width: 389px;
+    background: #525252;
+    margin-top: 32px;
+}
+.orderresult{
+    display: flex;
+    flex-direction: row;
+}
+
+.orderresult h1{
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 30px;
+}
+.orderresult h2{
+    color: #F29247;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.order-btn-container{
+    display: flex;
+    flex-direction: row;
+}
+.order-btn-back{
+    width: 144px;
+    height: 61px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #4C4949;
+    margin-left: 31px;
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center; /* 수직 방향 중앙 정렬 */
+
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.order-btn-continue{
+    width: 144px;
+    height: 61px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #F29247;
+    margin-left: 41px;
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center; /* 수직 방향 중앙 정렬 */
+
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.payment{
+    display: flex;
+    flex-direction: column;
+}
+.payment-index{
+    display: flex;
+    flex-direction: row;
+}
+.payment-index-text{
+    display: flex;
+    flex-direction: column;
+    width: 98px;
+    height: 62px;
+    margin-left: 30px;
+    
+}
+.payment-index-text h1{
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.payment-index-text h2{
+    color: #F29247;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: -5px;
+    display: flex;
+    align-Items :center;
+    justify-Content: center;
+}
+
+.payment-method{
+    display: flex;
+    flex-direction: row;
+}
+.payment-method-option{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    margin-left: 35px;
+    margin-bottom: 47px;
+    margin-top: 40px;
+
+    width: 138px;
+    height: 136px;
+    flex-shrink: 0;
+
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+
+    align-Items :center;
+    justify-Content: center;
+}
+
+.payment-method-option img{
+    width: 65%;
+    height: 65%;
+    object-fit: cover;
+}
+.payment-method-option h1{
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.payment-cancel-btn{
+    border-radius: 10px;
+    background: #4C4949;
+
+    width: 144px;
+    height: 61px;
+    flex-shrink: 0;
+
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    justify-content: center; /* 수평 방향 중앙 정렬 */
+    align-items: center; /* 수직 방향 중앙 정렬 */
+
+    margin-left: 123px;
 }

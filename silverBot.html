@@ -3,23 +3,31 @@
 <head>
     <title>Document</title>
     <style>
-        body {            
-            max-width: 428px;
-            max-height: 926px;
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+        .fullscreen {            
+            width: 428px;
+            height: 926px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             background-color: rgba(211, 204, 204, 0.85);
-        }
-        #silversk-modal {
-            display: none; /* Hidden by default */
+            border: solid 2px #ccc;
             position: fixed;
-            left: 50%;
             top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .silversk-modal {
             width: 389.665px;
-            height: 372.338px;
+            height: 466.063px;
+            display: flex;
             flex-direction: column;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 5px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            transform: translate(-50%, -50%); /* 필요없는 transform */
         }
         .silversk-modal-top{
             width: 391.31px;
@@ -49,7 +57,7 @@
         }
         .silversk-modal-content h1{
             color: #3C2C2C;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 28px;
             font-style: normal;
             font-weight: 600;
@@ -59,7 +67,7 @@
         }
         .silversk-modal-content h2{
             color: #484646;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 20px;
             font-style: normal;
             font-weight: 600;
@@ -92,7 +100,7 @@
             top: 95%;
             transform: translateX(-50%);
             color: #616161;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 23px;
             font-style: normal;
             font-weight: 700;
@@ -111,34 +119,33 @@
     </style>
 </head>
 <body>
-    <div id="silversk-modal" >
-        <div class="silversk-modal-top"></div>
-        <div class="silversk-modal-content">
-            <img class="circles-image" src="svg/silverBot/circles.svg">
-            <img class="user-image" id="user-image">
-            <h1 id="measure-text">실버봇이 나이를 측정 중입니다</h1>
-            <h2 id="info-text">조금만 기다려주세요</h2>
-            <img class="dots-image" src="svg/silverBot/dots.svg">          
+    <div class="fullscreen">
+        <div id="silversk-modal" >
+            <div class="silversk-modal-top"></div>
+            <div class="silversk-modal-content">
+                <img class="circles-image" src="src/svg/silverBot/circles.svg">
+                <img class="user-image" id="user-image">
+                <h1 id="measure-text">실버봇이 나이를 측정 중입니다</h1>
+                <h2 id="info-text">조금만 기다려주세요</h2>
+                <img class="dots-image" src="src/svg/silverBot/dots.svg">          
+            </div>
         </div>
+        <h1 class="silversk-text">Silversk</h1>
     </div>
-
     <button onclick="changeText()">Change Text</button>
-    <h1 class="silversk-text">Silversk</h1>
-
-
     <script>
         var silverskModal = document.getElementById("silversk-modal");
         silverskModal.style.display = "block";
 
         var userImage = document.getElementById("user-image");
-        userImage.src = "svg/silverBot/user.svg"
+        userImage.src = "src/svg/silverBot/user.svg"
 
         function changeText() {            
             var measureText = document.getElementById("measure-text");
             var infoText = document.getElementById("info-text");
             measureText.textContent = "실버봇이 측정하지 못했습니다"; 
             infoText.textContent = "조금만 앞으로 와주세요"; 
-            userImage.src = "svg/silverBot/user_error.svg"
+            userImage.src = "src/svg/silverBot/user_error.svg"
         }
 
     </script>

@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Menu Board</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .kiosk {
+            position: relative;
+            width: 482px;
+            height: 1200px;
+        }
+
+        .kiosk-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .kiosk-screen {
+            position: absolute;
+            top: 105px;  /* Adjust these values to fit the iframe into the smartphone screen */
+            left: 16px;
+            width: 450px;
+            height: 950px;
+            z-index: 2;
+        }
+
+    </style>
 </head>
 <body>
-    <div class="full-screen">
-        <div class="categories">
-            <!--js로 추가됨-->
-        </div>
 
-        <div class="categories-hr"></div>
+<div class="kiosk">
+    <img src="src/kiosk.png" alt="kiosk Image" class="kiosk-image">
+    <iframe src="intro.html" frameborder="0" class="kiosk-screen"></iframe>
+</div>
 
-        <div class="menu-items">
-            <!--js로 추가됨-->
-        </div>
-
-        <div class="basket">
-            
-        </div>
-
-        <div class="btn-container">
-            <div class="back-btn">
-                <p>처음으로</p>
-            </div>
-            <div class="order-btn">
-                <p>결제하기</p>
-            </div>
-        </div>
-    </div> <!--full-screen-->
-    <script src="script.js"></script>
 </body>
 </html>

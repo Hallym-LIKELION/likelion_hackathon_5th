@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap');
+        .fullscreen {            
+            width: 428px;
+            height: 926px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(211, 204, 204, 0.85);
+            border: solid 2px #ccc;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #silversk-modal {
+            width: 389.665px;
+            height: 466.063px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #silversk-modal-top{
+            width: 391px;
+            height: 71px;
+            flex-shrink: 0;
+            border-radius: 5px 5px 0px 0px;
+            background: #F29247;
+
+            display: flex;
+            justify-content: center; /* 수평 방향 중앙 정렬 */
+            align-items: center; /* 수직 방향 중앙 정렬 */
+
+            color: #FFF;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+        #silversk-modal-content {
+            position: relative;
+            border-radius: 0px 0px 5px 5px;
+            background: #FFF;
+            margin: auto;
+            width: 389.665px;
+            height: 372.338px;
+            flex-shrink: 0;            
+            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+            /*-webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #silversk-modal-content h1{
+            color: #000;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-align: center; /* 추가: 텍스트 가운데 정렬 */
+                
+            
+        }
+        #silversk-modal-content h2{
+            color: #F29247;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 31px;
+            text-align: center; /* 추가: 텍스트 가운데 정렬 */
+            
+        }
+        #image{
+            width: 250px;
+            height: 200px;
+            flex-shrink: 0;
+            margin-top: 30px;
+           
+        }
+        .silversk-text {
+            position: fixed;
+            left: 50%;
+            top: 95%;
+            transform: translateX(-50%);
+            color: #616161;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .print{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .print-bill{
+            color: #FFF;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+
+            display: flex;
+            justify-content: center; /* 수평 방향 중앙 정렬 */
+            align-items: center; /* 수직 방향 중앙 정렬 */
+
+            
+
+            width: 164px;
+            height: 61px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: #A3A5A8;
+        }
+        .print-ordernumber{
+            color: #FFF;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+
+            display: flex;
+            justify-content: center; /* 수평 방향 중앙 정렬 */
+            align-items: center; /* 수직 방향 중앙 정렬 */
+
+            margin-left: 24px;
+
+            width: 164px;
+            height: 61px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: #F29247;
+        }
+    </style>
+</head>
+<body>
+    <div class ="fullscreen">
+        <div id="silversk-modal" >
+            <div id="silversk-modal-top">결제 중입니다</div>
+            <div id="silversk-modal-content">
+                <img id="image" src="src/payment_creditcard.png">
+                <h1 id="basic-text">카드를 빼지말아주세요</h1>
+                <h2 id="highlight-text">잠시만 기다려주세요</h2>          
+            </div>
+        </div>
+        <h1 class="silversk-text">Silversk</h1>
+    </div>
+        
+
+    <script>
+        var silverskModalContent = document.getElementById("silversk-modal-content");
+
+        //var top = document.getElementById("silversk-modal-top"); 왜인지 안먹어서 직접접근 함
+        var image = document.getElementById("image");
+        var basicText = document.getElementById("basic-text");
+        var highlightText = document.getElementById("highlight-text");
+
+        setTimeout(changeText, 3000);
+
+        function changeText() {                
+            document.getElementById("silversk-modal-top").textContent = "주문이 완료되었습니다"; //직접 접근
+            basicText.textContent = "메뉴가 준비되면 안내해 드리겠습니다."; 
+            highlightText.textContent = "주문 영수증을 출력하시겠습니까?"; 
+            image.src = "src/bill.png";
+            image.style.width = '220px';
+            image.style.height = '140px';
+
+            const print = document.createElement('div');
+            print.classList.add('print');
+            const printBill = document.createElement('div');
+            printBill.classList.add('print-bill');
+            printBill.textContent = '영수증만 출력';
+
+            const printOrderNumber = document.createElement('div');
+            printOrderNumber.classList.add('print-ordernumber');
+            printOrderNumber.textContent = '주문번호만 출력';
+
+            print.appendChild(printBill);
+            print.appendChild(printOrderNumber);
+
+            silverskModalContent.appendChild(print);
+
+        }
+
+    </script>
+</body>
+</html>

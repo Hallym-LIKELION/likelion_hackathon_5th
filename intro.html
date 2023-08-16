@@ -3,29 +3,24 @@
 <head>
     <title>Test Box</title>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            max-width: 428px;
-            max-height: 926px;
-            margin: 0 auto;
-        }
-
-        .container { 
-            height: 100vh;
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        .fullscreen { 
+            width: 428px;
+            height: 926px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding-bottom: 30px; /* Add padding-bottom here */
+            border: solid 2px #ccc;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .headline {
             color: #3C3C3C;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 26px;
             font-style: normal;
             font-weight: 600;
@@ -35,7 +30,7 @@
         .text {
             color: #545454;
             text-align: center;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 19px;
             font-style: normal;
             font-weight: 600;
@@ -73,7 +68,7 @@
             
             color: #FFF0F0;
             text-align: center;
-            font-family: Inter;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 30px;
             font-style: normal;
             font-weight: 700;
@@ -89,24 +84,24 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <img class="image" src="svg/logo.svg">
+    <div class="fullscreen">
+        <img class="image" src="src/svg/logo.svg">
         <div class="headline">당신을 위한 서비스, Silversk</div>
         <div class="text"><b>나이</b>와 <b>키</b>를 인식하여 손님 개개인에 알맞은<br>맞춤형 화면을 제공합니다.</div>
         <div class="image-button" id="imageButton">
-            <img class="image" src="svg/startBtn.svg" alt="start_btn Image">
+            <img class="image" src="src/svg/startBtn.svg" alt="start_btn Image">
             <span>시작하기</span>
             
         </div>
         <div>
-            <img class="finger-image" src="svg/finger.svg">
+            <img class="finger-image" src="src/svg/finger.svg">
         </div>      
     </div>
 
     <script>
         
         function goToAnotherPage() {
-            window.location.href = "pre-order.html";
+            window.location.href = "silverBot.html";
         }
 
         const imageButton = document.getElementById("imageButton");
