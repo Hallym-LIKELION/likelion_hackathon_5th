@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .kiosk {
+            position: relative;
+            width: 482px;
+            height: 1200px;
+        }
+
+        .kiosk-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .kiosk-screen {
+            position: absolute;
+            top: 105px;  /* Adjust these values to fit the iframe into the smartphone screen */
+            left: 16px;
+            width: 450px;
+            height: 950px;
+            z-index: 2;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="kiosk">
+    <img src="src/kiosk.png" alt="kiosk Image" class="kiosk-image">
+    <iframe src="intro.html" frameborder="0" class="kiosk-screen"></iframe>
+</div>
+
+</body>
+</html>

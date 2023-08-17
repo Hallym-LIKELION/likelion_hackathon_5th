@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Box</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        .fullscreen { 
+            width: 428px;
+            height: 926px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: solid 2px #ccc;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .headline {
+            color: #3C3C3C;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        .text {
+            color: #545454;
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 19px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;   
+            margin-bottom: 5vh;         
+        }
+
+        .image {
+            display: block;
+            width: 175px;
+            height: 175px;
+            flex-shrink: 0;
+            margin: 0 auto;
+        }
+
+        .image-button {
+            cursor: pointer;
+            position: relative;
+           
+            width: 305.388px;
+            height: 68.577px;
+        }
+
+        .image-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-button span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            color: #FFF0F0;
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            
+        }
+        .finger-image {
+            position: relative;
+            width: 50px;
+            height: 38.636px;
+            transform: translate(130px, -20px);
+        }
+    </style>
+</head>
+<body>
+    <div class="fullscreen">
+        <img class="image" src="src/svg/logo.svg">
+        <div class="headline">당신을 위한 서비스, Silversk</div>
+        <div class="text"><b>나이</b>와 <b>키</b>를 인식하여 손님 개개인에 알맞은<br>맞춤형 화면을 제공합니다.</div>
+        <div class="image-button" id="imageButton">
+            <img class="image" src="src/svg/startBtn.svg" alt="start_btn Image">
+            <span>시작하기</span>
+            
+        </div>
+        <div>
+            <img class="finger-image" src="src/svg/finger.svg">
+        </div>      
+    </div>
+
+    <script>
+        
+        function goToAnotherPage() {
+            window.location.href = "silverBot.html";
+        }
+
+        const imageButton = document.getElementById("imageButton");
+        
+        imageButton.addEventListener("click", goToAnotherPage);
+    </script>
+
+</body>
+</html>

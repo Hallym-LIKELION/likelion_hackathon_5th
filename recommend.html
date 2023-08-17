@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        
+
+        .fullscreen {            
+            width: 428px;
+            height: 926px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(211, 204, 204, 0.85);
+            border: solid 2px #ccc;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #silversk-modal {
+            width: 389.665px;
+            height: 466.063px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .silversk-modal-top{
+            width: 391.31px;
+            height: 41.998px;
+            flex-shrink: 0;
+            border-radius: 5px 5px 0px 0px;
+            background: #F29247;
+        }
+        .silversk-modal-content {
+            position: relative;
+            border-radius: 0px 0px 5px 5px;
+            background: #FFF;
+            margin: auto;
+            width: 389.665px;
+            height: 372.338px;
+            flex-shrink: 0;            
+            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+            /*-webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #3C2C2C;
+
+            
+        }
+        .silversk-modal-content h1,
+        .silversk-modal-content h2,
+        .silversk-modal-content h3 {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            display: inline-block; /* 수정: 인라인 블록 요소로 변경 */
+            z-index: 2; 
+            transform: translateY(-110%);
+        }
+        .silversk-modal-content h1 {
+            margin-top: 10;
+            align-self: flex-start;
+        }
+        .silversk-modal-content h2 {
+            margin-top: 10;           
+            text-align: center;
+        }
+        .silversk-modal-content h3 {
+            margin-top: 10;
+            align-self: flex-end;
+        }
+        .btn-container{
+            display: flex;
+            flex-direction: row;
+        }
+        .silversk-text {
+            position: fixed;
+            left: 50%;
+            top: 95%;
+            transform: translateX(-50%);
+            color: #616161;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+        .btn-image{
+            width: 136px;
+            height: 59px;
+            flex-shrink: 0;
+        }
+        #basic-mode-btn {
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        
+        }
+
+        #basic-mode-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-20%,-70%);
+        }
+
+        #basic-mode-btn span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-75%, -180%);
+            
+            color: #3C2C2C;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            white-space: nowrap;
+            
+        }
+
+        #continue-mode-btn {
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        #continue-mode-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(10%,-70%);
+        }
+
+        #continue-mode-btn span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-35%, -180%);
+            
+            color: #3C2C2C;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            white-space: nowrap;
+            
+        }
+        .highlight{
+            transform: translate(0px, 115px);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="fullscreen">
+        <div id="silversk-modal" >
+            <div class="silversk-modal-top"></div>
+            <div class="silversk-modal-content">
+                <img class="highlight" src="src/svg/highlight.svg">
+                <h1>실버봇이</h1> 
+                <h2>큰 글자 화면</h2> 
+                <h3>을 추천합니다</h3>   
+                <div class="btn-container">
+                    <div id="basic-mode-btn">
+                        <img class="btn-image" src="src/svg/btn.svg" alr="basic_btn">
+                        <span>기본 화면</span>
+                    </div>
+                    <div id="continue-mode-btn">
+                        <img class="btn-image" src="src/svg/btn.svg" alr="continue_btn">
+                        <span>계속하기</span>
+                    </div>
+                    <div id="continue">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="silversk-text">Silversk</h1>
+    </div>
+    <script>
+
+        function goToBasicMode() {
+            window.location.href = "basicMode-order.html";
+        }
+        function goToSilverMode() {
+            window.location.href = "silverMode-order.html";
+        }
+
+        const basicButton = document.getElementById("basic-mode-btn");
+        const continueButton = document.getElementById("continue-mode-btn");
+        
+        basicButton.addEventListener("click", goToBasicMode);
+        continueButton.addEventListener("click", goToSilverMode);
+        
+
+    </script>
+</body>
+</html>

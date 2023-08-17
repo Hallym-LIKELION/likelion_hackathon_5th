@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+        .fullscreen {            
+            width: 428px;
+            height: 926px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(211, 204, 204, 0.85);
+            border: solid 2px #ccc;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .silversk-modal {
+            width: 389.665px;
+            height: 466.063px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .silversk-modal-top{
+            width: 391.31px;
+            height: 41.998px;
+            flex-shrink: 0;
+            border-radius: 5px 5px 0px 0px;
+            background: #F29247;
+            margin: auto;
+        }
+        .silversk-modal-content {
+            position: relative;
+            border-radius: 0px 0px 5px 5px;
+            background: #FFF;
+            margin: auto;
+            width: 389.665px;
+            height: 372.338px;
+            flex-shrink: 0;            
+            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+            /*-webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .silversk-modal-content h1{
+            color: #3C2C2C;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 600;
+            text-align: center; /* 추가: 텍스트 가운데 정렬 */
+                
+            
+        }
+        .silversk-modal-content h2{
+            color: #484646;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 31px;
+            text-align: center; /* 추가: 텍스트 가운데 정렬 */
+            
+        }
+        .circles-image{
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            margin-top: 70px;
+        }
+        .user-image{
+            width: 220px;
+            height: 197px;
+            flex-shrink: 0;
+            margin-bottom: -25px;
+        }
+        .dots-image{
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            transform: translate(130px, -65px);
+        }
+        .silversk-text {
+            position: fixed;
+            left: 50%;
+            top: 95%;
+            transform: translateX(-50%);
+            color: #616161;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+        .error-image{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 101px;
+            height: 89.033px;
+            flex-shrink: 0;
+            transform: translate(-50%, -50%);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="fullscreen">
+        <div id="silversk-modal" >
+            <div class="silversk-modal-top"></div>
+            <div class="silversk-modal-content">
+                <img class="circles-image" src="src/svg/silverBot/circles.svg">
+                <img class="user-image" id="user-image">
+                <h1 id="measure-text">실버봇이 나이를 측정 중입니다</h1>
+                <h2 id="info-text">조금만 기다려주세요</h2>
+                <img class="dots-image" src="src/svg/silverBot/dots.svg">          
+            </div>
+        </div>
+        <h1 class="silversk-text">Silversk</h1>
+    </div>
+    <button onclick="changeText()">Change Text</button>
+    <script>
+        var silverskModal = document.getElementById("silversk-modal");
+        silverskModal.style.display = "block";
+
+        var userImage = document.getElementById("user-image");
+        userImage.src = "src/svg/silverBot/user.svg"
+
+        function changeText() {            
+            var measureText = document.getElementById("measure-text");
+            var infoText = document.getElementById("info-text");
+            measureText.textContent = "실버봇이 측정하지 못했습니다"; 
+            infoText.textContent = "조금만 앞으로 와주세요"; 
+            userImage.src = "src/svg/silverBot/user_error.svg"
+        }
+
+    </script>
+</body>
+</html>
